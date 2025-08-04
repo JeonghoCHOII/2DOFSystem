@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>2DOFSim-Lagrangian
+</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+<div class = "settings-container">
+
+	<div class="controls">
+		<div class="initialset">
+		<strong>Initial q₁, q₂:</strong>
+			<input type="number" id="inputQ1" value="1" step="0.1">,
+			<input type="number" id="inputQ2" value="0" step="0.1">
+		</div>
+		<div class="initialset">
+		<strong>Initial q̇₁, q̇₂:</strong>
+			<input type="number" id="inputV1" value="0" step="0.1">,
+			<input type="number" id="inputV2" value="0" step="0.1">
+		</div>
+		<div class="initialset">
+			<strong>Graph Scale:</strong>
+			<input type="number" id="inputScale" value="100" step="10">
+		</div>
+	</div>
+
+	<div class="settings">
+		<div class="controls">
+			<strong>Constraint: f(q₁,q₂) = </strong>&nbsp;&nbsp;
+			<input type="text" id="constraintInput" value="0">&nbsp;&nbsp;
+			<strong> = 0</strong>
+		</div>
+
+		<div class="controls">
+			<!-- Metric 선택 -->
+			<strong>Metric:</strong>
+
+
+			<select id="metricSelect">
+				<option value="pendulum">Pendulum</option>
+				<option value="flat">Flat</option>
+				<option value="Schwarzschild">Schwarzschild</option>
+			</select>
+
+		</div>
+
+		<div class="controls">
+			<!-- Potential 선택 -->
+			<strong>Potential:</strong>
+			<select id="potentialSelect">
+				<option value="pendulum">Pendulum</option>
+				<option value="smallangle">Pendulum (θ≪1)</option>
+				<option value="oscillator">Coupled Oscillator</option>
+				<option value="nearEarth">Gravity (Near Earth)</option>
+				<option value="Central">Central Force</option>
+				<option value="free">Free Body</option>
+			</select>
+
+			<div id="attractionWrapper" style="display: none;">
+				(Is it gravitation?
+				<label><input type="radio" name="attraction" value="gravitation" checked> Yes</label>
+				<label><input type="radio" name="attraction" value="repulsion"> No</label>
+				)
+			</div>
+    	</div>
+
+	</div>
+
+</div>
+
+<div class="buttons" id="Buttoni">
+	<input type="button" value="Start" onclick="start()">
+	<input type="button" value="Stop" onclick="breaking()">
+
+	<button id="captureBtn">Capture line</button>
+</div>
+
+
+
+
+
+<div class = "canvas-container">  	
+	<div id = "graph">
+		<canvas class = "canvas" id = "layer1" width=600 height=600></canvas>
+		<canvas class = "canvas" id = "layer2" width=600 height=600></canvas>
+		<canvas class = "canvas" id = "layer3" width=600 height=600></canvas>
+		<canvas class = "canvas" id = "layer4" width=600 height=600></canvas>
+	</div>
+
+	<canvas class = "canvas" id = "cvs3" width=600 height=600></canvas>
+
+	<canvas class = "canvas" id = "cvs2" width=600 height=200></canvas>
+</div>
+
+<div class="controls">
+	<table border="1" id="logTable">
+		<thead>
+			<tr>
+			<th>Time (s)</th>
+			<th>log₁₀(Error)</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+</div>
+
+<script type="module" src="./main.js"></script>
+<script type="module" src="./physicsCore.js"></script>
+
+</body>
+</html>
