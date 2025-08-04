@@ -112,12 +112,12 @@ document.getElementById("startBtn").addEventListener("click", () => {
   window.localInverse = (q1, q2) => sim.localInverse(q1, q2);
   window.Constraint   = constraint;
 
-  window.computeEnergy = (q1, q2, v1, v2) => {
+  /*window.computeEnergy = (q1, q2, v1, v2) => {
     const g = sim.localMetric(q1, q2);
     const T = 0.5 * (g[0][0]*v1*v1 + 2*g[0][1]*v1*v2 + g[1][1]*v2*v2);
     const V = sim.potential(q1, q2);
     return T + V;
-  };
+  };*/
 
   // Read initial state and scale
   Q    = [parseFloat(document.getElementById("inputQ1").value),
@@ -130,7 +130,7 @@ document.getElementById("startBtn").addEventListener("click", () => {
   lastLogRealTime = null;
 
   // Record initial energy
-  const E0 = computeEnergy(Q[0], Q[1], Qdot[0], Qdot[1]);
+  //const E0 = computeEnergy(Q[0], Q[1], Qdot[0], Qdot[1]);
 
   // Clear canvases & draw initial background
   ctx1.clearRect(0, 0, WIDTH, HEIGHT);
@@ -174,12 +174,12 @@ function animate(timestamp) {
     Q    = state.Q;
     Qdot = state.Qdot;
 
-    const nowPerf = performance.now();
+    /*const nowPerf = performance.now();
     if (nowPerf - lastLogRealTime >= logIntervalMs) {
       const epsilon = Math.abs(computeEnergy(Q[0], Q[1], Qdot[0], Qdot[1]) - E0)/E0;
       logError((nowPerf - startRealTime) / 1000, epsilon);
       lastLogRealTime = nowPerf;
-    }
+    }*/
   }
 
   // Draw
