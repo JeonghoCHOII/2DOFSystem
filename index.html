@@ -579,10 +579,10 @@ function ChristoffelSymbol(localMetric, q1, q2) {
 	//dg[i][j][k] = g_{ij,k}
 	const dg = [ [ [0,0],[0,0] ], [ [0,0],[0,0] ] ];
 
-	dg[0][0] = Gradient(g11, q1, q2, dq);
-	dg[0][1] = Gradient(g12, q1, q2, dq);
+	dg[0][0] = GradientRE(g11, q1, q2, dq);
+	dg[0][1] = GradientRE(g12, q1, q2, dq);
 	dg[1][0] = dg[0][1];
-	dg[1][1] = Gradient(g22, q1, q2, dq);
+	dg[1][1] = GradientRE(g22, q1, q2, dq);
 
 	//G_ijk = 0.5(g_ij,k + g_ji,k - g_jk,i)
 	const G = [ [ [0,0],[0,0] ], [ [0,0],[0,0] ] ];
@@ -607,7 +607,7 @@ function computeAccelerate(Q,Qdot) {
 	const aQ = [FQ[0]/MASS1, FQ[1]/MASS1];
 
 	// Acceleration from the Potential
-	const FV = Gradient(Potential, q1, q2, dq);
+	const FV = GradientRE(Potential, q1, q2, dq);
 	const aV = [ FV[0] / MASS1, FV[1] / MASS1 ];
 
 	
@@ -1152,3 +1152,4 @@ function logError(t, epsilon) {
 </body>
 
 </html>
+
