@@ -1,0 +1,21 @@
+body { font-family: 'Segoe UI', sans-serif; background-color: #f9f9f9; margin: 20px; color: #222; }
+  .settings-container { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: left; align-items: stretch; margin-bottom: 1.5rem; }
+  .controls { flex: 1; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; padding: 10px; margin-bottom: 12px; background-color: #fff; border-left: 4px solid #4B0082; border-radius: 4px; max-width: 600px; }
+  .controls strong { display: block; margin: 0 0 0.5rem 0; font-weight: bold; font-size: 0.9rem; flex: auto; }
+  .controls > .initialset { display: flex; align-items: center; flex: 0 0 100%; gap: 0.5rem; margin-bottom: 0.5rem; }
+  .controls > .initialset strong { display: inline-block; margin: 0; flex: none; }
+  .controls > .initialset input { display: inline-block; margin: 0; flex: none; }
+  .controls input[type="number"], .controls input[type="text"], .controls select { margin: 0 0 0.5rem 0; padding: 4px 8px; font-size: 14px; border: 1px solid #ccc; border-radius: 3px; width: 120px; box-sizing: border-box; }
+  #constraintInput { width: 180px; }
+  .buttons { display: flex; flex: 0 0 100%; gap: 0.5rem; margin-bottom: 1rem; }
+  .buttons input[type="button"], .buttons button { background-color: #4B0082; color: #fff; padding: 6px 12px; border: none; border-radius: 4px; font-size: 14px; cursor: pointer; transition: background-color 0.2s; }
+  .buttons input[type="button"]:hover, .buttons button:hover { background-color: #360062; }
+  .canvas-container { display: flex; flex-wrap: wrap; flex-direction: column; justify-content: center; align-items: center; gap: 1rem; margin: 0 auto; max-width: 800px; }
+  /* The main graph container for the 3D view */
+  #graph { position: relative; width: 100%; max-width: 800px; height: 600px; border: 2px solid #000; margin-top: 20px; }
+  /* Hide the old 2D canvases */
+  #cvs3, #cvs2 { display: none; }
+  #logTable { width: 100%; border-collapse: collapse; margin-top: 10px; background-color: #fff; max-width: 800px; }
+  #logTable th, #logTable td { border: 1px solid #999; padding: 6px 10px; text-align: center; }
+  #logTable th { background-color: #eee; }
+  #attractionWrapper { margin-top: 6px; font-size: 14px; }
