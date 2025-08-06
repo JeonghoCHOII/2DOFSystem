@@ -1,6 +1,6 @@
 import { computeAccelerate, RK4step } from './PhysicsEngine.js';
 import { drawLine, drawParticle, drawOscillator, drawPendulum, drawLayer14 } from './Renderer.js';
-import * as THREE from 'three;'
+import * as THREE from 'three';
 /******3D객체 전용********/
 let scene, camera, renderer;
 let surfaceMesh, particleMesh;
